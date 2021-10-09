@@ -12,7 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: Download gcc-8
+      run: sudo apt-get install gcc-8
     - name: download linux recent commit
       run: wget https://github.com/ghgt1/linux/archive/$(git rev-parse @:./linux).zip -O linux.zip
     - name: unzip linux commit
