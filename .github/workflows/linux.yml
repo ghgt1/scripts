@@ -18,4 +18,4 @@ jobs:
     - name: unzip linux commit
       run: unzip linux.zip
     - name: build linux commit
-      run: ./build-linux.sh linux-$commit_num tinyconfig
+      run: ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
