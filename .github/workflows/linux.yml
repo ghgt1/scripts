@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    paths:
+      - linux
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: download linux recent commit
+      run: wget https://github.com/ghgt1/linux/archive/$(git rev-parse @:./linux).zip -O linux.zip
+    - name: unzip linux commit
+      run: unzip linux.zip
+    - name: build linux commit
+      run: ./build-linux.sh linux-$commit_num tinyconfig
